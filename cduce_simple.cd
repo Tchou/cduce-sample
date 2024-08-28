@@ -1,0 +1,14 @@
+let _ =
+(* Call a CDuce function from another module *)
+      match val_mod.validate_extract "test_invalid.xml" with
+        [] ->
+         (* Just for fun, we can call some functions from the OCaml
+            Standard Library by prefixing them with 'Ocaml.' and
+            the full qualified name of the OCaml standard library.
+            The list of primitives supported by the CDuce runtime
+            is given by the directive #builtins;; in the cduce
+            toplevel
+         *)
+         Ocaml.Stdlib.print_endline "Invalid document"
+    |  [s] ->
+        print_utf8 ("Valid document, orderperson is: " @ s @ "\n")

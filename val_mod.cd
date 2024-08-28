@@ -1,0 +1,15 @@
+schema Order = "order.xsd"
+
+let to_latin1 (s : String) : Latin1 =
+    match s with
+    [(x::Byte|_)*] -> x
+
+
+
+let validate_extract(file : Latin1) : [Latin1?] =
+    let doc = load_xml file in
+    try
+        let vdoc = validate doc with Order.shiporder in
+        match vdoc with
+        <shiporder ..>[ <orderperson ..>p _* ] -> [ (to_latin1 p) ]
+    with _ -> []

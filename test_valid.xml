@@ -1,0 +1,21 @@
+<shiporder orderid="id_42" >
+    <orderperson>Ada Lovelace</orderperson>
+    <shipto>
+        <name>Blaise Pascal</name>
+        <address>rue de Rivoli</address>
+        <city>Paris</city>
+        <country>France</country>
+    </shipto>
+        <item>
+            <title>cake</title>
+            <note></note>
+            <quantity>10</quantity>
+            <price>5.5</price>
+        </item>
+        <item>
+            <title>beer</title>
+            <note></note>
+            <quantity>8</quantity>
+            <price>8.25</price>
+        </item>
+</shiporder>

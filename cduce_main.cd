@@ -1,0 +1,9 @@
+let _ =
+(* Call a CDuce function from another module *)
+      match val_mod.validate_extract "test_valid.xml" with
+        [] -> (try
+        Ocaml.Stdlib.print_endline "Invalid document"
+        with _ -> [])
+    | [s] -> ANSITerminal.print_string
+             [ `Bold ANSITerminal.cyan ]
+             ("Valid document, orderperson is: " @ s @ "\n")
