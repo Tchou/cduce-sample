@@ -27,3 +27,8 @@ setup.log
 
 # Local OPAM switch
 _opam/
+
+# Cduce files
+*.cdo
+*.exe
+
