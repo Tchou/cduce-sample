@@ -51,10 +51,11 @@ $ opam install conf-libssl dune js_of_ocaml-compiler \
      ocaml-compiler-libs ocaml-expat ocamlfind ocamlnet \
      ocurl odoc pxp sedlex zarith zarith_stubs_js
 ```
-Again, if a C dependency, for instance `libssl`
+Again, if a C dependency, for instance `libssl`, is needed, opam will give the option to install it or to pause the installation of opam packages to install this dependency (this requires administration privilege, opam appropriately calls `sudo` to install the C dependencies via the distribution).
+
 ### Installing CDuce
 
-The easiest way ton install CDuce is by cloning the `git` repository, switching to the branch to test, and compile it using opam. We use the `dev` since it contains a utility script to install dependencies.
+The easiest way ton install CDuce is by cloning the `git` repository, switching to the branch to test, and compile it using opam. We use the `dev` since it contains the polymorphic version of CDuce and better bindings with OCaml.
 
 ```shell
 $ git clone https://gitlab.math.univ-paris-diderot.fr/cduce/cduce.git
@@ -88,11 +89,11 @@ Supported features:
 ## Sample programs
 
 There are three sample programs, all compiled by typing `make`.
-The details of the compilation steps are explained in the [`Makefile`]().
+The details of the compilation steps are explained in the [`Makefile`](Makefile).
 
-1. [`cduce_simple.cd`]() consits of two files, both in pure CDuce or using builting OCaml function that are directly callable from CDuce. The resulting "executable" is `cduce_simple.cdo` which must be run with `cduce --run cduce_simple.cdo`.
-2. [`cduce_main.cd`]() is a variant that calls arbitrary OCaml code which comes from an external library. To do so, CDuce code is embedded in OCaml files and all are compiled and linked together, giving a native executable (which embeds the CDuce interpreter).
-3. [`ocaml_main.cd`]() Same as above but the main code is in OCaml. It shows how to write an OCaml interface which describes how CDuce functions are exported as OCaml functions.
+1. [`cduce_simple.cd`](cduce_simple.cd) consits of two files, both in pure CDuce or using builtin OCaml functions that are directly callable from the CDuce toplevel. The resulting "executable" is `cduce_simple.cdo` which must be run with `cduce --run cduce_simple.cdo`.
+2. [`cduce_main.cd`](cduce_main.cd) is a variant that calls arbitrary OCaml code which comes from an external library. To do so, CDuce code is embedded in OCaml files and all are compiled and linked together, giving a native executable (which embeds the CDuce interpreter).
+3. [`ocaml_main.ml`](ocaml_main.ml) Same as above but the main code is in OCaml. It shows how to write an OCaml interface which describes how CDuce functions are exported as OCaml functions.
 
 The procedure is almost the same as the one described in the [CDuce User
 Guide](https://www.cduce.org/manual_interfacewithocaml.html), except that the
