@@ -63,7 +63,7 @@ cduce_main.cmx: cduce_main.cdo
 
 cduce_main.exe: cduce_main.cmx val_mod.cmx
 	ocamlfind ocamlopt -o cduce_main.exe \
-     -package cduce.lib.core,ANSITerminal -linkpkg \
+     -package cduce.lib,ANSITerminal -linkpkg \
 	 val_mod.cmx cduce_main.cmx
 
 
